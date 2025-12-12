@@ -3,110 +3,556 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The CS Café Tools</title>
-  <meta name="description" content="Customer Success tools by The CS Café: remote salary dashboards and practical calculators for CS professionals." />
+  <title>The CS Café Tools | Land elite CS roles</title>
+  <meta name="description" content="Outcomes-first Customer Success tools from The CS Café to land $120k–$200k+ roles, protect revenue, and drive boardroom-level impact." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://thecscafe.github.io/" />
-  <meta property="og:title" content="The CS Café Tools" />
-  <meta property="og:description" content="Remote salary dashboards + practical CS calculators." />
+  <meta property="og:title" content="The CS Café Tools | Outcomes-first CS hub" />
+  <meta property="og:description" content="Salary intelligence and calculators to win bigger offers, defend your budget, and prove Customer Success impact." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thecscafe.github.io/" />
   <style>
-    :root { color-scheme: light; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif; background:#0b0c10; color:#e9eef5; }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 64px; }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .logo { width:44px; height:44px; border-radius:12px; background: linear-gradient(135deg, #2b2f36, #12141a); display:grid; place-items:center; border:1px solid rgba(255,255,255,.08); }
-    .logo span { font-weight:800; letter-spacing:.5px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:44px; }
-    .pill { display:inline-flex; gap:10px; align-items:center; padding:10px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); font-size:14px; color:#cbd6e4; }
-    .pill b { color:#ffffff; font-weight:700; }
-    h1 { margin: 10px 0 12px; font-size: 42px; line-height: 1.06; letter-spacing: -0.02em; }
-    p { margin: 0 0 18px; color:#cbd6e4; font-size: 18px; line-height: 1.55; max-width: 72ch; }
-    .grid { margin-top: 28px; display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .card { grid-column: span 12; padding: 18px; border-radius: 18px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); }
-    .card h2 { margin: 0 0 6px; font-size: 18px; }
-    .card .meta { color:#aebbd0; font-size: 14px; margin-bottom: 14px; }
-    .btnrow { display:flex; gap:10px; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; padding: 10px 14px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); font-weight: 650; }
-    .btn:hover { background: rgba(255,255,255,.10); }
-    .btn.primary { background: #ffffff; color:#0b0c10; border-color: #ffffff; }
-    .btn.primary:hover { background: #f2f4f7; }
-    .list { margin: 12px 0 0; padding: 0; list-style:none; display:grid; gap:10px; }
-    .list li { display:flex; justify-content:space-between; gap:12px; align-items:center; padding: 12px 12px; border-radius: 14px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.12); }
-    .list span { color:#cbd6e4; font-size:14px; }
-    footer { margin-top: 46px; padding-top: 18px; border-top:1px solid rgba(255,255,255,.10); color:#93a4bd; font-size: 14px; display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; }
-    .smalllink { text-decoration: underline; text-underline-offset: 3px; }
-    @media (min-width: 780px) {
-      .card.two { grid-column: span 6; }
+    :root {
+      color-scheme: dark;
+      --bg: #05060a;
+      --bg-elevated: #0d1017;
+      --border-subtle: rgba(255,255,255,.10);
+      --accent: #f5f7ff;
+      --accent-soft: rgba(255,255,255,.06);
+      --accent-strong: #ffffff;
+      --text-main: #eef2ff;
+      --text-soft: #b7c4dd;
+      --text-subtle: #94a3b8;
+      --pill-bg: rgba(148,163,184,.14);
+      --pill-border: rgba(148,163,184,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(circle at top left,#111827 0,#020617 52%,#000000 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #38bdf8;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 40px 20px 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo {
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background: radial-gradient(circle at 10% 0,#22d3ee 0,#0f172a 44%,#020617 100%);
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(148,163,184,.45);
+      box-shadow: 0 14px 40px rgba(15,23,42,.65);
+    }
+
+    .logo span {
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+
+    .brand-title {
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+
+    .brand-subtitle {
+      color: var(--text-subtle);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .pill {
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid var(--pill-border);
+      background: var(--pill-bg);
+      font-size:13px;
+      color:#e5edff;
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    .pill b {
+      color: var(--accent-strong);
+      font-weight:700;
+    }
+
+    h1 {
+      margin: 6px 0 10px;
+      font-size: 40px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .eyebrow-dot {
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow: 0 0 0 5px rgba(34,197,94,.16);
+    }
+
+    .lede {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    .lede-strong {
+      color: #e5edff;
+      font-weight:600;
+    }
+
+    .outcome-list {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 4px 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .outcome-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:5px 10px;
+      border-radius:999px;
+      background: rgba(15,23,42,.96);
+      border:1px solid rgba(148,163,184,.60);
+      font-size:12px;
+      color:#c7d2fe;
+    }
+
+    .outcome-pill span {
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:#38bdf8;
+    }
+
+    .hero-cta-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border:1px solid rgba(148,163,184,.55);
+      background: var(--accent-soft);
+      font-weight: 600;
+      font-size:14px;
+      color: var(--accent);
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease, transform .05s ease;
+    }
+
+    .btn span {
+      font-size: 13px;
+      opacity:.82;
+      margin-left: 6px;
+    }
+
+    .btn:hover {
+      background: rgba(148,163,184,.26);
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      background: var(--accent-strong);
+      color:#020617;
+      border-color: var(--accent-strong);
+      box-shadow: 0 18px 45px rgba(15,23,42,.7);
+    }
+
+    .btn.primary:hover {
+      background:#e5e7eb;
+      border-color:#e5e7eb;
+    }
+
+    .badge-strip {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size: 12px;
+      color: var(--text-subtle);
+    }
+
+    .badge {
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.45);
+      background: rgba(15,23,42,.94);
+    }
+
+    .grid {
+      margin-top: 30px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      grid-column: span 12;
+      padding: 20px 18px 18px;
+      border-radius: 20px;
+      border:1px solid var(--border-subtle);
+      background:
+        radial-gradient(circle at top,rgba(56,189,248,.10) 0,transparent 55%),
+        radial-gradient(circle at bottom,rgba(37,99,235,.22) 0,transparent 60%),
+        var(--bg-elevated);
+      box-shadow: 0 18px 60px rgba(15,23,42,.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      border:1px solid rgba(148,163,184,.12);
+      pointer-events:none;
+    }
+
+    .card-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      margin: 0 0 2px;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+
+    .card-sub {
+      color: var(--text-subtle);
+      font-size: 14px;
+      max-width: 34ch;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #64748b;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.45);
+      background: rgba(15,23,42,.96);
+      white-space: nowrap;
+    }
+
+    .meta-row {
+      margin: 6px 0 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .meta-chip {
+      padding:4px 9px;
+      border-radius:999px;
+      background: rgba(15,23,42,.9);
+      border:1px dashed rgba(148,163,184,.6);
+    }
+
+    .btnrow {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+
+    .btn.secondary-inline {
+      background: transparent;
+      border-style:dashed;
+    }
+
+    .list {
+      margin: 10px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+
+    .list li {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding: 10px 11px;
+      border-radius: 14px;
+      border:1px solid rgba(15,23,42,.9);
+      background: radial-gradient(circle at 0 0,rgba(56,189,248,.16) 0,transparent 42%), rgba(15,23,42,.96);
+      font-size: 13px;
+    }
+
+    .list-main {
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .list-title {
+      font-weight:500;
+    }
+
+    .list-sub {
+      font-size: 12px;
+      color: var(--text-subtle);
+    }
+
+    .list-metric {
+      font-size: 12px;
+      color:#c7d2fe;
+      white-space: nowrap;
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top:1px solid rgba(30,41,59,.9);
+      color:#94a3b8;
+      font-size: 13px;
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .smalllink {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (min-width: 820px) {
+      h1 {
+        font-size: 46px;
+      }
+      .card.two {
+        grid-column: span 6;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="topbar">
+    <header class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"><span>CS</span></div>
         <div>
-          <div style="font-weight:800;">The CS Café</div>
-          <div style="color:#aebbd0;font-size:14px;margin-top:2px;">Tools for Customer Success professionals</div>
+          <div class="brand-title">The CS Café</div>
+          <div class="brand-subtitle">Proven tools for modern Customer Success leaders</div>
         </div>
       </div>
-      <div class="pill">Live tools: <b>Salary dashboards</b> + <b>Calculators</b></div>
-    </div>
+      <div class="pill">
+        Live tools:
+        <b>Salary intelligence</b>
+        <span>+</span>
+        <b>Boardroom-ready calculators</b>
+      </div>
+    </header>
 
-    <h1>CS tools you can use in minutes.</h1>
-    <p>
-      A small collection of practical tools from The CS Café. Built for Customer Success leaders and operators
-      who want faster answers, cleaner benchmarks, and better decisions.
-    </p>
+    <main>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Built for CS leaders protecting revenue
+      </div>
 
-    <div class="grid">
-      <section class="card two">
-        <h2>Remote Salary Dashboards</h2>
-        <div class="meta">Benchmarks by function. Quick comparisons. Shareable links.</div>
-        <div class="btnrow">
-          <a class="btn primary" href="/salaries/">Open salary hub</a>
-          <a class="btn" href="/salaries/Interactive-Remote-Customer-Success-Salary-Dashboard.html">CS dashboard</a>
-          <a class="btn" href="/salaries/Interactive-Remote-Sales-Salary-Dashboard.html">Sales dashboard</a>
-        </div>
-        <ul class="list" aria-label="Salary dashboards list">
-          <li>
-            <a href="/salaries/Interactive-Remote-Marketing-Salary-Dashboard.html">Marketing dashboard</a>
-            <span>Role benchmarks</span>
-          </li>
-          <li>
-            <a href="/salaries/Interactive-Remote-Product-Management-Salary-Dashboard.html">Product dashboard</a>
-            <span>Comp context</span>
-          </li>
-        </ul>
+      <h1>Turn CS decisions into $120k–$200k+ outcomes.</h1>
+
+      <p class="lede">
+        Use The CS Café tools to
+        <span class="lede-strong">negotiate top-tier offers, defend your budget in the boardroom, and prove the revenue impact of Customer Success</span>
+        without wrestling spreadsheets.
+      </p>
+
+      <ul class="outcome-list" aria-label="Key outcomes">
+        <li class="outcome-pill"><span></span> Benchmark your comp in minutes</li>
+        <li class="outcome-pill"><span></span> Model renewals and churn scenarios</li>
+        <li class="outcome-pill"><span></span> Walk into exec reviews with proof</li>
+      </ul>
+
+      <div class="hero-cta-row">
+        <a class="btn primary" href="/salaries/">
+          Explore salary hub
+          <span>See where you should really be</span>
+        </a>
+        <a class="btn" href="/calculators/">
+          Open CS calculators
+          <span>Build your revenue story fast</span>
+        </a>
+      </div>
+
+      <div class="badge-strip">
+        <span class="badge">Trusted by 4,100+ CS professionals</span>
+        <span class="badge">Built for ICs, leaders, and execs</span>
+      </div>
+
+      <section class="grid" aria-label="Tool collections">
+        <!-- Salary Dashboards -->
+        <article class="card two">
+          <div class="card-header">
+            <div>
+              <h2>Remote Salary Dashboards</h2>
+              <p class="card-sub">
+                See what top CS, Sales, Marketing, and Product operators really earn so you can step into comp conversations with confidence.
+              </p>
+            </div>
+            <div class="card-tag">Land bigger offers</div>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-chip">Remote-first roles only</span>
+            <span class="meta-chip">Benchmarks by function & level</span>
+          </div>
+
+          <div class="btnrow">
+            <a class="btn primary" href="/salaries/">
+              Open salary hub
+              <span>Plan your next move</span>
+            </a>
+            <a class="btn secondary-inline" href="/salaries/Interactive-Remote-Customer-Success-Salary-Dashboard.html">
+              CS comp dashboard
+            </a>
+            <a class="btn secondary-inline" href="/salaries/Interactive-Remote-Sales-Salary-Dashboard.html">
+              Sales comp dashboard
+            </a>
+          </div>
+
+          <ul class="list" aria-label="Additional salary dashboards">
+            <li>
+              <a class="list-main" href="/salaries/Interactive-Remote-Marketing-Salary-Dashboard.html">
+                <span class="list-title">Marketing leadership roles</span>
+                <span class="list-sub">Align GTM comp with CS expectations</span>
+              </a>
+              <span class="list-metric">Role-level benchmarks</span>
+            </li>
+            <li>
+              <a class="list-main" href="/salaries/Interactive-Remote-Product-Management-Salary-Dashboard.html">
+                <span class="list-title">Product & PMM roles</span>
+                <span class="list-sub">Understand adjacent comp when evolving your career</span>
+              </a>
+              <span class="list-metric">Comp context by track</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Calculators -->
+        <article class="card two">
+          <div class="card-header">
+            <div>
+              <h2>Customer Success Calculators</h2>
+              <p class="card-sub">
+                Turn renewals, retention, and coverage questions into clear numbers you can defend in front of finance and the board.
+              </p>
+            </div>
+            <div class="card-tag">Prove CS impact</div>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-chip">Renewals & churn scenarios</span>
+            <span class="meta-chip">Headcount & coverage planning</span>
+          </div>
+
+          <div class="btnrow">
+            <a class="btn primary" href="/calculators/">
+              Open calculators
+              <span>Get to a defensible number</span>
+            </a>
+          </div>
+
+          <ul class="list" aria-label="Calculator hub links">
+            <li>
+              <a class="list-main" href="/calculators/">
+                <span class="list-title">Explore all CS tools</span>
+                <span class="list-sub">Pick the calculator that fits your next exec conversation</span>
+              </a>
+              <span class="list-metric">New tools added over time</span>
+            </li>
+            <li>
+              <a class="list-main smalllink" href="https://www.thecscafe.com" rel="noopener">
+                <span class="list-title">Read The CS Café</span>
+                <span class="list-sub">Weekly plays to protect revenue and grow your career</span>
+              </a>
+              <span class="list-metric">Inbox-ready insights</span>
+            </li>
+          </ul>
+        </article>
       </section>
-
-      <section class="card two">
-        <h2>Customer Success Calculators</h2>
-        <div class="meta">Fast math for renewals, retention, and planning.</div>
-        <div class="btnrow">
-          <a class="btn primary" href="/calculators/">Open calculators</a>
-        </div>
-        <ul class="list" aria-label="Calculators list">
-          <li>
-            <a href="/calculators/">Explore tools</a>
-            <span>Pick what you need</span>
-          </li>
-          <li>
-            <a class="smalllink" href="https://www.thecscafe.com" rel="noopener">Read The CS Café</a>
-            <span>Weekly insights</span>
-          </li>
-        </ul>
-      </section>
-    </div>
+    </main>
 
     <footer>
-      <div>© <span id="y"></span> The CS Café</div>
+      <div>© <span id="y"></span> The CS Café · Built for serious Customer Success operators</div>
       <div>
         <a class="smalllink" href="/salaries/sitemap.xml">Salaries sitemap</a>
-        <span style="opacity:.6;"> · </span>
+        <span style="opacity:.5;"> · </span>
         <a class="smalllink" href="https://www.thecscafe.com" rel="noopener">thecscafe.com</a>
       </div>
     </footer>
