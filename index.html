@@ -13,18 +13,22 @@
   <meta property="og:url" content="https://thecscafe.github.io/" />
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #05060a;
-      --bg-elevated: #0d1017;
-      --border-subtle: rgba(255,255,255,.10);
-      --accent: #f5f7ff;
-      --accent-soft: rgba(255,255,255,.06);
-      --accent-strong: #ffffff;
-      --text-main: #eef2ff;
-      --text-soft: #b7c4dd;
-      --text-subtle: #94a3b8;
-      --pill-bg: rgba(148,163,184,.14);
-      --pill-border: rgba(148,163,184,.45);
+      color-scheme: light;
+      --bg: #f4f6fb;
+      --bg-muted: #e5e9f5;
+      --bg-elevated: #ffffff;
+      --border-subtle: rgba(148,163,184,.35);
+      --accent: #1d4ed8;
+      --accent-soft: #e0edff;
+      --accent-soft-strong: #d0e2ff;
+      --accent-strong: #1d4ed8;
+      --text-main: #0f172a;
+      --text-soft: #4b5563;
+      --text-subtle: #6b7280;
+      --pill-bg: #edf2ff;
+      --pill-border: #c7d2fe;
+      --shadow-soft: 0 18px 40px rgba(15,23,42,.10);
+      --radius-lg: 18px;
     }
 
     * {
@@ -33,9 +37,11 @@
 
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background: radial-gradient(circle at top left,#111827 0,#020617 52%,#000000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background:
+        radial-gradient(circle at top left, #e0edff 0, #f9fafb 36%, #eef2ff 100%);
       color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -45,16 +51,18 @@
 
     a:focus-visible,
     button:focus-visible {
-      outline: 2px solid #38bdf8;
+      outline: 2px solid var(--accent);
       outline-offset: 3px;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
     .wrap {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 40px 20px 72px;
+      padding: 32px 20px 64px;
     }
+
+    /* Top bar / brand */
 
     .topbar {
       display: flex;
@@ -62,7 +70,7 @@
       align-items: center;
       gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .brand {
@@ -75,21 +83,24 @@
       width:44px;
       height:44px;
       border-radius:14px;
-      background: radial-gradient(circle at 10% 0,#22d3ee 0,#0f172a 44%,#020617 100%);
+      background: radial-gradient(circle at 10% 0,#4f46e5 0,#1d4ed8 40%,#1e293b 100%);
       display:grid;
       place-items:center;
-      border:1px solid rgba(148,163,184,.45);
-      box-shadow: 0 14px 40px rgba(15,23,42,.65);
+      color:#f9fafb;
+      font-weight:800;
+      border:1px solid rgba(79,70,229,.35);
+      box-shadow: 0 10px 30px rgba(15,23,42,.25);
     }
 
     .logo span {
-      font-weight:800;
-      letter-spacing:.5px;
+      letter-spacing:.4px;
+      font-size: 15px;
     }
 
     .brand-title {
-      font-weight:800;
+      font-weight:700;
       letter-spacing:.02em;
+      font-size: 16px;
     }
 
     .brand-subtitle {
@@ -100,27 +111,28 @@
 
     .pill {
       display:inline-flex;
-      gap:10px;
+      gap:8px;
       align-items:center;
-      padding:9px 14px;
+      padding:8px 14px;
       border-radius:999px;
       border:1px solid var(--pill-border);
       background: var(--pill-bg);
       font-size:13px;
-      color:#e5edff;
-      backdrop-filter: blur(10px);
+      color:#111827;
       white-space: nowrap;
     }
 
     .pill b {
       color: var(--accent-strong);
-      font-weight:700;
+      font-weight:600;
     }
 
+    /* Hero */
+
     h1 {
-      margin: 6px 0 10px;
-      font-size: 40px;
-      line-height: 1.05;
+      margin: 4px 0 10px;
+      font-size: 38px;
+      line-height: 1.16;
       letter-spacing: -0.03em;
     }
 
@@ -128,30 +140,30 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      font-size:13px;
-      color: var(--text-subtle);
+      font-size:12px;
+      color: var(--accent-strong);
       text-transform: uppercase;
-      letter-spacing: .16em;
+      letter-spacing: .18em;
     }
 
     .eyebrow-dot {
-      width:6px;
-      height:6px;
+      width:7px;
+      height:7px;
       border-radius:999px;
-      background:#22c55e;
-      box-shadow: 0 0 0 5px rgba(34,197,94,.16);
+      background:#16a34a;
+      box-shadow: 0 0 0 4px rgba(22,163,74,.18);
     }
 
     .lede {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       color: var(--text-soft);
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.6;
       max-width: 70ch;
     }
 
     .lede-strong {
-      color: #e5edff;
+      color: #111827;
       font-weight:600;
     }
 
@@ -159,7 +171,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 4px 0 20px;
+      margin: 2px 0 20px;
       padding: 0;
       list-style: none;
     }
@@ -168,83 +180,99 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:5px 10px;
+      padding:6px 11px;
       border-radius:999px;
-      background: rgba(15,23,42,.96);
-      border:1px solid rgba(148,163,184,.60);
+      background: #e5ecff;
+      border:1px solid #c7d2fe;
       font-size:12px;
-      color:#c7d2fe;
+      color:#1f2933;
     }
 
     .outcome-pill span {
       width:6px;
       height:6px;
       border-radius:999px;
-      background:#38bdf8;
+      background:#3b82f6;
     }
 
     .hero-cta-row {
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
 
     .btn {
       display:inline-flex;
-      align-items:center;
+      flex-direction:column;
+      align-items:flex-start;
       justify-content:center;
       padding: 10px 16px;
       border-radius: 999px;
-      border:1px solid rgba(148,163,184,.55);
-      background: var(--accent-soft);
+      border:1px solid rgba(148,163,184,.60);
+      background: #ffffff;
       font-weight: 600;
       font-size:14px;
-      color: var(--accent);
+      color: var(--text-main);
       cursor:pointer;
-      transition: background .15s ease, border-color .15s ease, transform .05s ease;
+      transition: background .12s ease, border-color .12s ease, box-shadow .12s ease, transform .05s ease;
+      min-width: 0;
     }
 
-    .btn span {
-      font-size: 13px;
-      opacity:.82;
-      margin-left: 6px;
+    .btn-main {
+      display:block;
+    }
+
+    .btn-sub {
+      display:block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-subtle);
+      margin-top: 1px;
     }
 
     .btn:hover {
-      background: rgba(148,163,184,.26);
+      background:#f3f4ff;
+      border-color:#a5b4fc;
+      box-shadow: 0 10px 25px rgba(15,23,42,.12);
       transform: translateY(-1px);
     }
 
     .btn.primary {
-      background: var(--accent-strong);
-      color:#020617;
-      border-color: var(--accent-strong);
-      box-shadow: 0 18px 45px rgba(15,23,42,.7);
+      background: #1d4ed8;
+      border-color:#1d4ed8;
+      color:#f9fafb;
+      box-shadow: 0 14px 32px rgba(37,99,235,.40);
+      flex-direction:row;
+      gap:10px;
+      align-items:center;
     }
 
-    .btn.primary:hover {
-      background:#e5e7eb;
-      border-color:#e5e7eb;
+    .btn.primary .btn-sub {
+      color:#e5edff;
+      margin-top:0;
     }
 
     .badge-strip {
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
+      gap:8px;
       font-size: 12px;
       color: var(--text-subtle);
+      margin-bottom: 12px;
     }
 
     .badge {
       padding:4px 9px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.45);
-      background: rgba(15,23,42,.94);
+      border:1px solid rgba(148,163,184,.50);
+      background: #ffffff;
     }
 
+    /* Cards grid */
+
     .grid {
-      margin-top: 30px;
+      margin-top: 26px;
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 18px;
@@ -252,14 +280,12 @@
 
     .card {
       grid-column: span 12;
-      padding: 20px 18px 18px;
-      border-radius: 20px;
+      padding: 18px 18px 16px;
+      border-radius: var(--radius-lg);
       border:1px solid var(--border-subtle);
       background:
-        radial-gradient(circle at top,rgba(56,189,248,.10) 0,transparent 55%),
-        radial-gradient(circle at bottom,rgba(37,99,235,.22) 0,transparent 60%),
-        var(--bg-elevated);
-      box-shadow: 0 18px 60px rgba(15,23,42,.9);
+        linear-gradient(to bottom right, #ffffff 0, #f9fbff 40%, #eef2ff 100%);
+      box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
     }
@@ -269,7 +295,7 @@
       position:absolute;
       inset:-1px;
       border-radius:inherit;
-      border:1px solid rgba(148,163,184,.12);
+      border:1px solid rgba(148,163,184,.18);
       pointer-events:none;
     }
 
@@ -282,7 +308,7 @@
     }
 
     .card h2 {
-      margin: 0 0 2px;
+      margin: 0 0 4px;
       font-size: 18px;
       letter-spacing:-0.01em;
     }
@@ -290,26 +316,26 @@
     .card-sub {
       color: var(--text-subtle);
       font-size: 14px;
-      max-width: 34ch;
+      max-width: 36ch;
     }
 
     .card-tag {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: .16em;
-      color: #64748b;
+      color: #4b5563;
       padding:5px 9px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.45);
-      background: rgba(15,23,42,.96);
+      border:1px solid rgba(148,163,184,.60);
+      background: #edf2ff;
       white-space: nowrap;
     }
 
     .meta-row {
-      margin: 6px 0 14px;
+      margin: 6px 0 12px;
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
+      gap:8px;
       font-size: 12px;
       color: var(--text-soft);
     }
@@ -317,28 +343,30 @@
     .meta-chip {
       padding:4px 9px;
       border-radius:999px;
-      background: rgba(15,23,42,.9);
-      border:1px dashed rgba(148,163,184,.6);
+      background: #eef2ff;
+      border:1px dashed rgba(148,163,184,.80);
     }
 
     .btnrow {
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .btn.secondary-inline {
-      background: transparent;
       border-style:dashed;
+      background:#f9fafb;
+      flex-direction:row;
+      align-items:center;
     }
 
     .list {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       padding: 0;
       list-style:none;
       display:grid;
-      gap:8px;
+      gap:6px;
     }
 
     .list li {
@@ -346,10 +374,10 @@
       justify-content:space-between;
       gap:12px;
       align-items:center;
-      padding: 10px 11px;
-      border-radius: 14px;
-      border:1px solid rgba(15,23,42,.9);
-      background: radial-gradient(circle at 0 0,rgba(56,189,248,.16) 0,transparent 42%), rgba(15,23,42,.96);
+      padding: 9px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(209,213,219,.90);
+      background: #ffffff;
       font-size: 13px;
     }
 
@@ -361,6 +389,7 @@
 
     .list-title {
       font-weight:500;
+      color:#111827;
     }
 
     .list-sub {
@@ -370,15 +399,18 @@
 
     .list-metric {
       font-size: 12px;
-      color:#c7d2fe;
+      color:#4f46e5;
       white-space: nowrap;
+      font-weight:500;
     }
 
+    /* Footer */
+
     footer {
-      margin-top: 44px;
-      padding-top: 18px;
-      border-top:1px solid rgba(30,41,59,.9);
-      color:#94a3b8;
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top:1px solid #e5e7eb;
+      color:#6b7280;
       font-size: 13px;
       display:flex;
       gap:12px;
@@ -389,11 +421,18 @@
     .smalllink {
       text-decoration: underline;
       text-underline-offset: 3px;
+      color:#4b5563;
     }
+
+    .smalllink:hover {
+      color:#1d4ed8;
+    }
+
+    /* Layout */
 
     @media (min-width: 820px) {
       h1 {
-        font-size: 46px;
+        font-size: 44px;
       }
       .card.two {
         grid-column: span 6;
@@ -441,12 +480,12 @@
 
       <div class="hero-cta-row">
         <a class="btn primary" href="/salaries/">
-          Explore salary hub
-          <span>See where you should really be</span>
+          <span class="btn-main">Explore salary hub</span>
+          <span class="btn-sub">See where you should really be</span>
         </a>
         <a class="btn" href="/calculators/">
-          Open CS calculators
-          <span>Build your revenue story fast</span>
+          <span class="btn-main">Open CS calculators</span>
+          <span class="btn-sub">Build your revenue story fast</span>
         </a>
       </div>
 
@@ -470,13 +509,13 @@
 
           <div class="meta-row">
             <span class="meta-chip">Remote-first roles only</span>
-            <span class="meta-chip">Benchmarks by function & level</span>
+            <span class="meta-chip">Benchmarks by function &amp; level</span>
           </div>
 
           <div class="btnrow">
             <a class="btn primary" href="/salaries/">
-              Open salary hub
-              <span>Plan your next move</span>
+              <span class="btn-main">Open salary hub</span>
+              <span class="btn-sub">Plan your next move</span>
             </a>
             <a class="btn secondary-inline" href="/salaries/Interactive-Remote-Customer-Success-Salary-Dashboard.html">
               CS comp dashboard
@@ -496,7 +535,7 @@
             </li>
             <li>
               <a class="list-main" href="/salaries/Interactive-Remote-Product-Management-Salary-Dashboard.html">
-                <span class="list-title">Product & PMM roles</span>
+                <span class="list-title">Product &amp; PMM roles</span>
                 <span class="list-sub">Understand adjacent comp when evolving your career</span>
               </a>
               <span class="list-metric">Comp context by track</span>
@@ -517,14 +556,14 @@
           </div>
 
           <div class="meta-row">
-            <span class="meta-chip">Renewals & churn scenarios</span>
-            <span class="meta-chip">Headcount & coverage planning</span>
+            <span class="meta-chip">Renewals &amp; churn scenarios</span>
+            <span class="meta-chip">Headcount &amp; coverage planning</span>
           </div>
 
           <div class="btnrow">
             <a class="btn primary" href="/calculators/">
-              Open calculators
-              <span>Get to a defensible number</span>
+              <span class="btn-main">Open calculators</span>
+              <span class="btn-sub">Get to a defensible number</span>
             </a>
           </div>
 
